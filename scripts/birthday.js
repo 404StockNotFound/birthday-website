@@ -333,6 +333,12 @@ const wish=document.querySelector(".wish-text");
 typeWriter(wish,30);
 
 })
+
+.to(".profile-picture", 0.8, {
+    opacity: 0,
+    scale: 0.8
+}, "+=1")
+
     .staggerTo(
       ".eight svg",
       1,
