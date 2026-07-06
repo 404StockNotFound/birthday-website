@@ -1,19 +1,66 @@
 // Birthday page scripts
 
 // Animation GSAP timeline on load event
+
+const typeWriter = (element, speed = 35) => {
+
+  const text = element.dataset.text;
+
+  element.innerHTML = "";
+
+  element.classList.add("typing");
+
+  let i = 0;
+
+  const typing = setInterval(() => {
+
+    element.innerHTML += text.charAt(i);
+
+    i++;
+
+    if(i >= text.length){
+
+      clearInterval(typing);
+
+      element.classList.remove("typing");
+
+    }
+
+  },speed);
+
+};
 window.addEventListener("load", () => {
-  Swal.fire({
-    title: "Do you want to play music in the background?",
-    // text: "You won't be able to revert this!",
+ Swal.fire({
+    title: "mau putar musik ga?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes",
-    cancelButtonText: "No",
+    confirmButtonText: "iya",
+    cancelButtonText: "ga",
   }).then((result) => {
     if (result.isConfirmed) {
-      document.querySelector(".song").play();
+     const music=document.querySelector(".song");
+
+music.volume=0;
+
+music.play();
+
+let volume=0;
+
+const fade=setInterval(()=>{
+
+volume+=0.02;
+
+music.volume=volume;
+
+if(volume>=1){
+
+clearInterval(fade);
+
+}
+
+},120);
       animationTimeline();
     } else {
       animationTimeline();
@@ -109,6 +156,13 @@ const animationTimeline = () => {
       },
       0.05
     )
+    .call(() => {
+
+const chat=document.querySelector(".hbd-chatbox");
+
+typeWriter(chat,18);
+
+})
     .to(
       ".fake-btn",
       0.1,
@@ -255,9 +309,16 @@ const animationTimeline = () => {
       0.1,
       "party"
     )
+    .call(() => {
+
+birthdayConfetti();
+fireworks();
+
+})
     .from(
       ".wish h5",
       0.5,
+      
       {
         opacity: 0,
         y: 10,
@@ -265,15 +326,22 @@ const animationTimeline = () => {
       },
       "party"
     )
+    .call(()=>{
+
+const wish=document.querySelector(".wish-text");
+
+typeWriter(wish,30);
+
+})
     .staggerTo(
       ".eight svg",
-      1.5,
+      1,
       {
         visibility: "visible",
         opacity: 0,
-        scale: 80,
+        scale: 60,
         repeat: 3,
-        repeatDelay: 1.4,
+        repeatDelay: 0.8,
       },
       0.3
     )
@@ -285,16 +353,211 @@ const animationTimeline = () => {
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
       ".last-smile",
-      0.5,
+      0.4,
       {
-        rotation: 90,
+        rotation:90,
       },
-      "+=1"
-    );
+      "+=0.2"
+)
+
+.to(".letter-section",0.6,{
+
+opacity:1,
+
+y:-40
+
+});
 
   // restart animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
   });
+};
+
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 60
+    },
+    color: {
+      value: "#ffffff"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.4
+    },
+    size: {
+      value: 4
+    },
+    move: {
+      enable: true,
+      speed: 1
+    },
+    line_linked: {
+      enable: false
+    }
+  }
+});
+
+function birthdayConfetti(){
+
+confetti({
+
+particleCount:250,
+
+spread:180,
+
+origin:{y:.55}
+
+});
+
+}
+
+function fireworks(){
+
+const duration=3000;
+
+const animationEnd=Date.now()+duration;
+
+const interval=setInterval(()=>{
+
+if(Date.now()>animationEnd){
+
+clearInterval(interval);
+
+return;
+
+}
+
+confetti({
+
+particleCount:3,
+
+angle:60,
+
+spread:60,
+
+origin:{x:0}
+
+});
+
+confetti({
+
+particleCount:3,
+
+angle:120,
+
+spread:60,
+
+origin:{x:1}
+
+});
+
+},150);
+
+}
+
+const letter = document.getElementById("openLetter");
+
+const modal = document.getElementById("letterModal");
+
+const close = document.getElementById("closeLetter");
+
+letter.addEventListener("click",()=>{
+
+modal.classList.add("show");
+
+});
+
+close.addEventListener("click", () => {
+
+    modal.classList.remove("show");
+
+    document.querySelector(".memory-section").style.display = "block";
+
+});
+
+const photos=[
+
+"./img/memory1.jpg",
+
+"./img/memory2.jpg",
+
+"./img/memory3.jpg"
+
+];
+
+const captions=[
+
+"foto pertama kita bareng ❤️",
+  "salah satu memori favoritku ✨",
+  "makasih buat setiap momennya ❤️"
+
+];
+
+let photoIndex=0;
+
+const gallery=document.getElementById("galleryModal");
+
+const image=document.getElementById("galleryImage");
+
+const caption=document.getElementById("galleryCaption");
+
+const counter=document.getElementById("currentPhoto");
+
+function updateGallery(){
+
+image.src=photos[photoIndex];
+
+caption.innerHTML=captions[photoIndex];
+
+counter.innerHTML=photoIndex+1;
+
+}
+
+document.getElementById("openGallery").onclick=()=>{
+
+gallery.classList.add("show");
+
+updateGallery();
+
+};
+
+document.getElementById("closeGallery").onclick=()=>{
+
+    gallery.classList.remove("show");
+
+    document.querySelector(".ending-screen").classList.add("show");
+
+};
+
+document.getElementById("nextPhoto").onclick=()=>{
+
+photoIndex++;
+
+if(photoIndex>=photos.length){
+
+photoIndex=0;
+
+}
+
+updateGallery();
+
+};
+
+document.getElementById("prevPhoto").onclick=()=>{
+
+photoIndex--;
+
+if(photoIndex<0){
+
+photoIndex=photos.length-1;
+
+}
+
+updateGallery();
+
 };

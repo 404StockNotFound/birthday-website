@@ -8,21 +8,67 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/style.css">
-  <title>Halaman Login</title>
+  <title>halaman login</title>
 </head>
 
 <body>
-  <div class="login_container">
-    <h2>Hi👋🏼 Ayangg login dulu yuk</h2>
+
+<body>
+  <div id="transition-screen"></div>
+
+<div id="loader">
+
+    <div class="loader-heart">❤️</div>
+
+    <h2>lagi nyiapin kejutan buat kamu...</h2>
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+    <p id="loading-text">lagi loading...</p>
+
+</div>
+
+<div id="particles-js"></div>
+
+<div class="login_container">
+    <h2>hi👋🏼 septi login dulu yuk</h2>
     <form id="loginForm" class="login_form">
-      <input type="text" id="username" placeholder="Username" />
-      <input type="password" id="password" placeholder="Password" />
-      <button type="submit" id="loginBtn">Login</button>
-    </form>
+
+<div class="input-box">
+<i class="fa-solid fa-user"></i>
+<input
+type="text"
+id="username"
+placeholder="Username">
+</div>
+
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
+<input
+type="password"
+id="password"
+placeholder="Password">
+</div>
+
+<button
+type="submit"
+id="loginBtn">
+
+<span>login ❤️</span>
+
+</button>
+
+</form>
     <p class="login_description">
-      pssstttt, usernamenya isi "user" dan passwordnya sama dengan usernamenya ya
+      usernamenya isi "septi" dan passwordnya sama dengan usernamenya ya
     </p>
   </div>
 </body>
@@ -30,7 +76,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <!-- SweetAlery -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <!-- Main JS -->
+ <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script type="application/javascript" src="./scripts/index.js"></script>
 
 </html>
