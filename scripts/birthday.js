@@ -343,42 +343,30 @@ typeWriter(wish,30);
 
 })
 
-.call(() => {
+.to(".profile-picture",0.8,{
+  opacity:0,
+  scale:0.8,
+  y:-20,
+},"+=1")
 
-setTimeout(() => {
+.staggerTo(
+  ".eight svg",
+  1,
+  {
+    visibility:"visible",
+    opacity:0,
+    scale:60,
+    repeat:3,
+    repeatDelay:.8,
+  },
+  0.3
+)
 
-gsap.to(".profile-picture",{
-
-opacity:0,
-
-scale:0.8,
-
-y:-20,
-
-duration:.8
-
-});
-
-},1000);
-
+.to(".six",0.5,{
+  opacity:0,
+  y:30,
+  zIndex:-1
 })
-    .staggerTo(
-      ".eight svg",
-      1,
-      {
-        visibility: "visible",
-        opacity: 0,
-        scale: 60,
-        repeat: 3,
-        repeatDelay: 0.8,
-      },
-      0.3
-    )
-    .to(".six", 0.5, {
-      opacity: 0,
-      y: 30,
-      zIndex: "-1",
-    })
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
       ".last-smile",
