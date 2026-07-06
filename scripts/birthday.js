@@ -64,6 +64,15 @@ clearInterval(fade);
       animationTimeline();
     } else {
       animationTimeline();
+      setTimeout(() => {
+
+const six=document.querySelector(".six");
+
+six.style.transition="opacity .8s";
+
+six.style.opacity="0";
+
+},1);
     }
   });
 });

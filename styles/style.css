@@ -240,10 +240,14 @@ box-shadow:0 20px 40px rgba(0,0,0,.15);
   font-size: 15rem;
 }
 
-.six {
+.six{
   position: relative;
   top: 10vh;
   z-index: 1;
+
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .six img{
@@ -917,9 +921,10 @@ transform:translateY(-220px) scale(2);
 }
 
 .profile-picture{
+  animation: glow 2s ease-in-out infinite;
 
-animation:glow 2s ease-in-out infinite;
-
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 
