@@ -652,8 +652,7 @@ margin-bottom:25px;
 }
 
 .progress{
-
-width:300px;
+    width:min(300px,80%);
 
 height:12px;
 
@@ -691,6 +690,15 @@ color:white;
 
 font-size:18px;
 
+}
+#loader h2{
+    width:90%;
+    max-width:500px;
+    text-align:center;
+    color:white;
+    font-size:32px;
+    line-height:1.4;
+    margin:0 auto;
 }
 
 @keyframes showLogin{
@@ -1584,6 +1592,34 @@ font-weight:bold;
 .close-letter-btn:hover{
 
     transform:scale(1.05);
+
+}
+
+@media (max-width:768px){
+
+    .loader-heart{
+        font-size:60px;
+        margin-bottom:20px;
+    }
+
+    #loader h2{
+        font-size:18px;
+        width:90%;
+        line-height:1.5;
+        padding:0 15px;
+    }
+
+    .progress{
+        width:80%;
+        max-width:320px;
+        height:10px;
+    }
+
+    #loading-text{
+        font-size:16px;
+        text-align:center;
+        width:90%;
+    }
 
 }
 
