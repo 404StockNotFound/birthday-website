@@ -334,11 +334,25 @@ typeWriter(wish,30);
 
 })
 
-.to(".profile-picture", 0.8, {
-    opacity: 0,
-    scale: 0.8
-}, "+=1")
+.call(() => {
 
+setTimeout(() => {
+
+gsap.to(".profile-picture",{
+
+opacity:0,
+
+scale:0.8,
+
+y:-20,
+
+duration:.8
+
+});
+
+},1000);
+
+})
     .staggerTo(
       ".eight svg",
       1,
