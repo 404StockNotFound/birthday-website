@@ -466,6 +466,8 @@ const modal = document.getElementById("letterModal");
 
 const close = document.getElementById("closeLetter");
 
+const closeBottom = document.getElementById("closeLetterBottom");
+
 letter.addEventListener("click",()=>{
 
 modal.classList.add("show");
@@ -477,6 +479,14 @@ close.addEventListener("click", () => {
     modal.classList.remove("show");
 
     document.querySelector(".memory-section").style.display = "block";
+
+});
+
+closeBottom.addEventListener("click",()=>{
+
+    modal.classList.remove("show");
+
+    document.querySelector(".memory-section").style.display="block";
 
 });
 
@@ -493,7 +503,7 @@ const photos=[
 const captions=[
 
 "foto pertama kita bareng ❤️",
-  "salah satu memori favoritku ✨",
+  "aku waktu botak, dan kamu masi tetep cinta ✨",
   "makasih buat setiap momennya ❤️"
 
 ];

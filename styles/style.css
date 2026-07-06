@@ -1551,3 +1551,39 @@ font-weight:bold;
 
 }
 
+.letter-footer{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    padding-bottom:20px;
+
+}
+
+.close-letter-btn{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#ff5fa2;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-letter-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
